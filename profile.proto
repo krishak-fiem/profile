@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package profile;
+
+option go_package = "/pb";
+
+message UpdateProfileMessage {
+  string email = 1;
+  string name = 2;
+  string street_address = 3;
+  uint32 pincode = 4;
+  string phone_number = 5;
+  string state = 6;
+  string city = 7;
+}
+
+message GetProfileMessage {
+  string email = 1;
+}
+
+message UpdateProfileResponse {
+  bool status = 1;
+  string payload = 2;
+}
+
+message ProfileResponse {
+  string email = 1;
+  string name = 2;
+  string street_address = 3;
+  uint32 pincode = 4;
+  string phone_number = 5;
+  string state = 6;
+  string city = 7;
+  bool status = 8;
+}
+
+service ProfileService {
+  rpc UpdateProfile(UpdateProfileMessage) returns (UpdateProfileResponse) {}
+  rpc GetProfile(GetProfileMessage) returns (ProfileResponse) {}
+}
