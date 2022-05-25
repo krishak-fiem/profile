@@ -28,3 +28,4 @@ func main() {
 		log.Fatalf("Failed to start the auth products on port 5000: %v\n", err)
 	}
 }
+ 
